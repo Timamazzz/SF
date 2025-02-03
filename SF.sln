@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{55188900-EE67-49CA-81E6-C511F71DFE78}"
+	ProjectSection(SolutionItems) = preProject
+		services\docker-compose.yml = services\docker-compose.yml
+		services\.gitignore = services\.gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserService", "UserService", "{33E0A7C7-6623-4E77-B0D9-B33209948874}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersService.API", "services\UserService\UsersService.API\UsersService.API.csproj", "{5D170DB5-E2BB-49CB-ADB7-79F2FBC1FBA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersService.Application", "services\UserService\UsersService.Application\UsersService.Application.csproj", "{E91C281E-D3F7-4A9D-82D7-4DC490AE2C5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersService.Core", "services\UserService\UsersService.Core\UsersService.Core.csproj", "{BAD6B4B6-E632-4F1D-8025-E096DAF01B42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersService.Infrastructure", "services\UserService\UsersService.Infrastructure\UsersService.Infrastructure.csproj", "{B6B52F11-B9AE-4490-8182-6EB39A2FF540}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersService.Persistence", "services\UserService\UsersService.Persistence\UsersService.Persistence.csproj", "{557AA6C1-0CE9-48BC-8FC4-58FA52100AA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D170DB5-E2BB-49CB-ADB7-79F2FBC1FBA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D170DB5-E2BB-49CB-ADB7-79F2FBC1FBA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D170DB5-E2BB-49CB-ADB7-79F2FBC1FBA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D170DB5-E2BB-49CB-ADB7-79F2FBC1FBA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E91C281E-D3F7-4A9D-82D7-4DC490AE2C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E91C281E-D3F7-4A9D-82D7-4DC490AE2C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E91C281E-D3F7-4A9D-82D7-4DC490AE2C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E91C281E-D3F7-4A9D-82D7-4DC490AE2C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD6B4B6-E632-4F1D-8025-E096DAF01B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD6B4B6-E632-4F1D-8025-E096DAF01B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD6B4B6-E632-4F1D-8025-E096DAF01B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD6B4B6-E632-4F1D-8025-E096DAF01B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6B52F11-B9AE-4490-8182-6EB39A2FF540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B52F11-B9AE-4490-8182-6EB39A2FF540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B52F11-B9AE-4490-8182-6EB39A2FF540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B52F11-B9AE-4490-8182-6EB39A2FF540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{557AA6C1-0CE9-48BC-8FC4-58FA52100AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{557AA6C1-0CE9-48BC-8FC4-58FA52100AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{557AA6C1-0CE9-48BC-8FC4-58FA52100AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{557AA6C1-0CE9-48BC-8FC4-58FA52100AA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33E0A7C7-6623-4E77-B0D9-B33209948874} = {55188900-EE67-49CA-81E6-C511F71DFE78}
+		{5D170DB5-E2BB-49CB-ADB7-79F2FBC1FBA1} = {33E0A7C7-6623-4E77-B0D9-B33209948874}
+		{E91C281E-D3F7-4A9D-82D7-4DC490AE2C5B} = {33E0A7C7-6623-4E77-B0D9-B33209948874}
+		{BAD6B4B6-E632-4F1D-8025-E096DAF01B42} = {33E0A7C7-6623-4E77-B0D9-B33209948874}
+		{B6B52F11-B9AE-4490-8182-6EB39A2FF540} = {33E0A7C7-6623-4E77-B0D9-B33209948874}
+		{557AA6C1-0CE9-48BC-8FC4-58FA52100AA7} = {33E0A7C7-6623-4E77-B0D9-B33209948874}
+	EndGlobalSection
+EndGlobal

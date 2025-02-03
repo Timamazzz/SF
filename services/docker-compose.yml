@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  users-service:
+    build:
+      context: ./UserService
+      dockerfile: UsersService.API/Dockerfile
+    ports:
+      - "5000:8080"
+    networks:
+      - app-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DB_HOST=users-db
+      - DB_PORT=5432
+      - DB_NAME=usersdb
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    depends_on:
+      - users-db
+
+  users-db:
+    image: postgres:13
+    container_name: users-db
+    environment:
+      POSTGRES_DB: usersdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - app-network
+    volumes:
+      - users-db-data:/var/lib/postgresql/data
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  users-db-data:
+    driver: local
