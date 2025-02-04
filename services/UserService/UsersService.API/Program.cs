@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using UsersService.Application.Interfaces;
 using UsersService.Application.Services;
 using UsersService.Core.Repositories;
 using UsersService.Persistence;
@@ -16,7 +17,7 @@ builder.Services.AddDbContext<UserDbContext>(options =>
 
 // Подключаем репозитории и сервисы
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Настройка Swagger
 builder.Services.AddEndpointsApiExplorer();

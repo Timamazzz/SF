@@ -1,24 +1,17 @@
-﻿namespace UsersService.API.Controllers;
-
+﻿using UsersService.API.DTOs;
+using UsersService.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using UsersService.API.DTOs;
-using UsersService.Application.Services;
+
+namespace UsersService.API.Controllers;
 
 [Route("api/users")]
 [ApiController]
-public class UserController : ControllerBase
+public class UserController(IUserService userService) : ControllerBase
 {
-    private readonly UserService _userService;
-
-    public UserController(UserService userService)
-    {
-        _userService = userService;
-    }
-
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] UserRegisterDto dto)
     {
-        var result = await _userService.RegisterUserAsync(dto.Email, dto.Password, dto.Nickname);
+        var result = await userService.RegisterUserAsync(dto.Email, dto.Password, dto.Nickname);
         if (!result)
         {
             return BadRequest("User already exists");

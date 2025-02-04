@@ -1,24 +1,19 @@
 ﻿namespace UsersService.Application.Services;
 
+using UsersService.Application.Interfaces;
 using UsersService.Core.Models;
 using UsersService.Core.Repositories;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 
-public class UserService
+public class UserService(IUserRepository userRepository) : IUserService
 {
-    private readonly IUserRepository _userRepository;
-
-    public UserService(IUserRepository userRepository)
-    {
-        _userRepository = userRepository;
-    }
-
     public async Task<bool> RegisterUserAsync(string email, string password, string nickname)
     {
-        if (await _userRepository.GetByEmailAsync(email) != null)
+        if (await userRepository.GetByEmailAsync(email) != null)
         {
-            return false; // Пользователь уже существует
+            return false;
         }
 
         var user = new User
@@ -28,11 +23,11 @@ public class UserService
             Nickname = nickname
         };
 
-        await _userRepository.AddAsync(user);
+        await userRepository.AddAsync(user);
         return true;
     }
 
-    private string HashPassword(string password)
+    private static string HashPassword(string password)
     {
         using var sha256 = SHA256.Create();
         return Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));

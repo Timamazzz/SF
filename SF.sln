@@ -6,7 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{55188900-EE67-49CA-81E6-C511F71DFE78}"
 	ProjectSection(SolutionItems) = preProject
 		services\docker-compose.yml = services\docker-compose.yml
-		services\.gitignore = services\.gitignore
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserService", "UserService", "{33E0A7C7-6623-4E77-B0D9-B33209948874}"
