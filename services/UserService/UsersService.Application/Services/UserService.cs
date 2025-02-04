@@ -7,15 +7,20 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
+// Реализация сервиса пользователей
 public class UserService(IUserRepository userRepository) : IUserService
 {
+    // Метод для регистрации нового пользователя
+    // Возвращает true, если регистрация успешна, иначе false (например, если email уже занят)
     public async Task<bool> RegisterUserAsync(string email, string password, string nickname)
     {
+        // Проверяем, существует ли уже пользователь с таким email
         if (await userRepository.GetByEmailAsync(email) != null)
         {
-            return false;
+            return false; // Если да, регистрация не выполняется
         }
 
+        // Создаем нового пользователя с хешированным паролем
         var user = new User
         {
             Email = email,
@@ -23,10 +28,12 @@ public class UserService(IUserRepository userRepository) : IUserService
             Nickname = nickname
         };
 
+        // Добавляем пользователя в хранилище
         await userRepository.AddAsync(user);
         return true;
     }
 
+    // Метод для хеширования пароля с использованием SHA-256
     private static string HashPassword(string password)
     {
         using var sha256 = SHA256.Create();

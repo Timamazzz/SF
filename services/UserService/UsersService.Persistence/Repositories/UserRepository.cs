@@ -4,23 +4,19 @@ using Microsoft.EntityFrameworkCore;
 using UsersService.Core.Models;
 using UsersService.Core.Repositories;
 
-public class UserRepository : IUserRepository
+// Реализация репозитория пользователей, использующего Entity Framework Core
+public class UserRepository(UserDbContext context) : IUserRepository
 {
-    private readonly UserDbContext _context;
-
-    public UserRepository(UserDbContext context)
-    {
-        _context = context;
-    }
-
+    // Поиск пользователя по email в базе данных
     public async Task<User?> GetByEmailAsync(string email)
     {
-        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        return await context.Users.FirstOrDefaultAsync(u => u.Email == email);
     }
 
+    // Добавление нового пользователя в базу данных
     public async Task AddAsync(User user)
     {
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
+        context.Users.Add(user); // Добавляем пользователя в контекст
+        await context.SaveChangesAsync(); // Сохраняем изменения в базе данных
     }
 }
